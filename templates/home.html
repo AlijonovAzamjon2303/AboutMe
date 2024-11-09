@@ -1,10 +1,25 @@
-<form method="POST" action="{% url 'save_name' %}">
-    {% csrf_token %}
-    <label for="first-name">Ism:</label>
-    <input type="text" id="first-name" name="first_name" placeholder="Ismingizni kiriting" required>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="POST" action="{% url 'save_name' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first-name">Ism:</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Ismingizni kiriting" required>
+        </div>
 
-    <label for="last-name">Familiya:</label>
-    <input type="text" id="last-name" name="last_name" placeholder="Familiyangizni kiriting" required>
+        <div class="form-group">
+            <label for="last-name">Familiya:</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Familiyangizni kiriting" required>
+        </div>
 
-    <button type="submit">Yuborish</button>
-</form>
+        <button type="submit">Yuborish</button>
+    </form>
+</body>
+</html>

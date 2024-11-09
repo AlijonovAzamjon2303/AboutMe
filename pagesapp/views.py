@@ -9,7 +9,7 @@ class HomePageView(TemplateView):
 
 def save_name(first_name, last_name):
     with open('names.txt', 'a') as file:
-        file.write(f"{first_name} {last_name}")
+        file.write(f"{first_name} {last_name}\n")
 
 
 def name_view(request):
