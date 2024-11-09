@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Assalomu alaykum, xush kelibsiz!</h1>
-</body>
-</html>
+<form method="POST" action="{% url 'save_name' %}">
+    {% csrf_token %}
+    <label for="first-name">Ism:</label>
+    <input type="text" id="first-name" name="first_name" placeholder="Ismingizni kiriting" required>
+
+    <label for="last-name">Familiya:</label>
+    <input type="text" id="last-name" name="last_name" placeholder="Familiyangizni kiriting" required>
+
+    <button type="submit">Yuborish</button>
+</form>
