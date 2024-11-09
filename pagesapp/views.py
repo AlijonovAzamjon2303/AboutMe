@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from .forms import NameForm
+import os
 
 # Create your views here.
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
 def save_name(first_name, last_name):
-    with open('names.txt', 'a') as file:
+    with open("C:/Users/alijo/Desktop/names.txt", 'a') as file:
         file.write(f"{first_name} {last_name}\n")
 
 
@@ -28,3 +29,18 @@ def name_view(request):
         form = NameForm()
 
     return render(request, 'home.html', {'form': form})
+
+# views.py
+from django.shortcuts import render
+import os
+
+def data_view(request):
+    file_path = "C:/Users/alijo/Desktop/names.txt"
+    names = []
+    try:
+        with open(file_path, 'r') as file:
+            names = file.readlines()
+    except FileNotFoundError:
+        names = ["Fayl topilmadi"]
+
+    return render(request, 'data.html', {'names': names})
